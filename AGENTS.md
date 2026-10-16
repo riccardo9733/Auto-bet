@@ -3,6 +3,18 @@
 
 ### 📄 File 2: `AGENTS.md` (Il file guida primario per Google Jules)
 
+IMPORTANTE - REGOLE ANTI-BLOCCO TERMINALE:
+1. NON eseguire MAI `npx create-next-app` o `npx shadcn init` da terminale (la directory non è vuota e le CLI interattive bloccano la tua shell in attesa di input).
+2. Inizializza il progetto scrivendo direttamente i file di configurazione sul filesystem usando i tuoi file tools.
+
+Esegui esattamente questi passaggi:
+1. Crea `package.json` con Next.js 15, React 19, TypeScript, Tailwind CSS v4 (`@tailwindcss/postcss`), `lucide-react`, `next-themes`, `clsx`, `tailwind-merge` e `class-variance-authority`.
+2. Crea `tsconfig.json`, `next.config.ts`, `postcss.config.mjs` e `netlify.toml`.
+3. Crea `src/lib/utils.ts` (con la funzione `cn`), `src/components/icons.tsx` (esportando le icone base da `lucide-react`), `src/app/globals.css` (con i token HSL chiari/scuri di `DESIGN.md` §2 e §12) e `src/app/layout.tsx` + `src/app/page.tsx` (con un semplice redirect o pagina placeholder).
+4. Solo DOPO aver scritto tutti questi file, esegui nel terminale `npm install --no-audit --no-fund` e verifica con `npx tsc --noEmit`.
+5. Non eseguire mai `npm run dev` (blocca il processo). Usa solo `npm run build` per testare, poi fai il commit.
+6. 
+
 Metti questo file nella **root del progetto**. Google Jules e gli altri coding agent leggono automaticamente `AGENTS.md` per capire contesto, vincoli architetturali e standard qualitativi.
 
 ```markdown
